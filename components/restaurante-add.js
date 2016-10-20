@@ -14,46 +14,24 @@ var router_1 = require('@angular/router');
 var restaurante_service_1 = require('../service/restaurante.service');
 var Restaurante_1 = require('../model/Restaurante');
 // Decorador component, indicamos en que etiqueta se va a cargar la plantilla
-var RestauranteDetailComponent = (function () {
-    function RestauranteDetailComponent(route, restauranteService, router) {
+var RestauranteAddComponent = (function () {
+    function RestauranteAddComponent(route, restauranteService, router) {
         this.route = route;
         this.restauranteService = restauranteService;
         this.router = router;
-        this.titulo = "Detalle Restaurante";
+        this.titulo = "Agregar Restaurante";
         this.restaurante = new Restaurante_1.Restaurante();
     }
-    RestauranteDetailComponent.prototype.ngOnInit = function () {
-        this.getRestaurante();
+    RestauranteAddComponent.prototype.ngOnInit = function () {
     };
-    RestauranteDetailComponent.prototype.getRestaurante = function () {
-        var _this = this;
-        var id;
-        this.route.params.forEach(function (params) {
-            id = +params['id'] + ""; // (+) converts string 'id' to a number
-        });
-        this.restauranteService.getRestaurante(id).subscribe(function (result) {
-            _this.restaurante = result.data;
-            _this.status = result.status + "";
-            if (_this.status !== "success") {
-                _this.router.navigate(["/Home"]);
-            }
-        }, function (error) {
-            _this.errorMessage = error;
-            if (_this.errorMessage !== null) {
-                console.log(_this.errorMessage);
-                alert("Error en la petición");
-            }
-        });
-    };
-    RestauranteDetailComponent = __decorate([
+    RestauranteAddComponent = __decorate([
         core_1.Component({
-            selector: 'restaurante-list',
-            templateUrl: 'app/views/restaurante-detail.html',
+            templateUrl: 'app/views/restaurante-add.html',
             providers: [restaurante_service_1.RestauranteService]
         }), 
         __metadata('design:paramtypes', [router_1.ActivatedRoute, restaurante_service_1.RestauranteService, router_1.Router])
-    ], RestauranteDetailComponent);
-    return RestauranteDetailComponent;
+    ], RestauranteAddComponent);
+    return RestauranteAddComponent;
 }());
-exports.RestauranteDetailComponent = RestauranteDetailComponent;
-//# sourceMappingURL=restaurante-detail.js.map
+exports.RestauranteAddComponent = RestauranteAddComponent;
+//# sourceMappingURL=restaurante-add.js.map

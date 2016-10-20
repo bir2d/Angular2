@@ -12,6 +12,7 @@ var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
 var restaurantes_list_1 = require('../restaurantes-list');
 var restaurante_detail_1 = require('../restaurante-detail');
+var restaurante_add_1 = require('../restaurante-add');
 var AppRoutingModule = (function () {
     function AppRoutingModule() {
     }
@@ -21,7 +22,8 @@ var AppRoutingModule = (function () {
                 router_1.RouterModule.forRoot([
                     { path: 'Home', component: restaurantes_list_1.RestauranteListComponent },
                     { path: '', component: restaurantes_list_1.RestauranteListComponent },
-                    { path: 'restaurante/:id', component: restaurante_detail_1.RestauranteDetailComponent }
+                    { path: 'restaurante/:id', component: restaurante_detail_1.RestauranteDetailComponent },
+                    { path: 'crear_restaurante', component: restaurante_add_1.RestauranteAddComponent }
                 ])
             ],
             exports: [

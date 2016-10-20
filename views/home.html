@@ -4,7 +4,13 @@
 
 <div  class="clearfix" ></div>
 </header>
-
+<nav id="nav">
+    <ul>
+        <li><a [routerLink]="['Home']" >Inicio</a></li>
+        <li><a [routerLink]="['crear_restaurante']" >Crear Restaurante</a></li>
+        <li><a [routerLink]="['Home']" >¿Donde comer hoy?</a></li>
+    </ul>
+</nav>
 <section class="main">
     <router-outlet></router-outlet>
     <div class="clearfix"></div>

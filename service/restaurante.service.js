@@ -19,6 +19,10 @@ var RestauranteService = (function () {
         return this._http.get("http://localhost:8080/api_res_angular2/restaurantes-api.php/restaurantes")
             .map(function (res) { return res.json(); });
     };
+    RestauranteService.prototype.getRestaurante = function (id) {
+        return this._http.get("http://localhost:8080/api_res_angular2/restaurantes-api.php/restaurante/" + id)
+            .map(function (res) { return res.json(); });
+    };
     RestauranteService = __decorate([
         core_1.Injectable(), 
         __metadata('design:paramtypes', [http_1.Http])

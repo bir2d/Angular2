@@ -33,8 +33,8 @@ var RestauranteListComponent = (function () {
         var box_restaurantes = document.querySelector("#restaurantes-list .loading");
         box_restaurantes.style.visibility = "visible";
         this.restauranteService.getRestaurantes().subscribe(function (result) {
-            _this.Restaurantes = result.data,
-                _this.status = result.status;
+            _this.Restaurantes = result.data;
+            _this.status = result.status + "";
             if (_this.status !== "success") {
                 alert("Error en el servidor");
             }

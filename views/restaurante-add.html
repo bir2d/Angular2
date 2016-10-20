@@ -1,0 +1,29 @@
+<h1>{{titulo}}</h1>
+{{precio.value}}{{restaurante.precio}}
+<form (ngSubmit)="onSubmit()" #restauranteForm="ngForm">
+	<label >Nombre</label>
+        <p>            
+            <input class="mas" type="text" #nombre="ngModel" name="titulo" [(ngModel)]="restaurante.nombre" required>
+		<span [hidden]="nombre.valid || nombre.pristine">No Válido</span>
+	</p>
+        <label >Dirección</label>
+	<p>
+		<input type="text" #direccion="ngModel" name="direccion" [(ngModel)]="restaurante.director" required>
+	</p>
+        <label >Precio</label>
+	<p>
+		
+                <select #precio="ngModel" name="precio" [(ngModel)]="restaurante.precio" required >
+                    <option value="bajo">Bajo</option>
+                    <option value="Normal">Normal</option>
+                    <option value="alto">Alto</option>
+                </select>
+	</p>
+        <label >Descripción</label>
+        <p>
+            <textarea type="text" #descripcion="ngModel" name="descripcion" [(ngModel)]="restaurante.descripcion" required>
+            </textarea>  
+        </p>
+            <br>
+            <input type="submit" name="name" [disabled]="!restauranteForm.form.valid" value="Crear Pelicula">
+</form>

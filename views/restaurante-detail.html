@@ -1,1 +1,17 @@
 <h1>{{titulo}}</h1>
+<div class="restaurante-box" *ngIf="restaurante">
+    <h1>Restaurante {{restaurante.nombre}}</h1>
+    {{restaurante.precio}}
+    <p class="precio">
+        <span [ngSwitch]="restaurante.precio">
+            <span *ngSwitchCase="'bajo'">Entre 2.50 y 6</span>
+            <span *ngSwitchCase="'normal'">entre 4.6 y 9</span>
+            <span *ngSwitchCase="'alto'">entre 7.5 y 20</span>
+             <span *ngSwitchDefault></span>
+        </span>
+    </p>
+    <p class="direccion">{{restaurante.direccion}}</p>
+    <p class="descripcion">{{restaurante.descripcion}}</p>
+    
+</div>
+<a routerLink="/" routerLinkActive="active">Atrás</a>

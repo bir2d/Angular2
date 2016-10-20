@@ -36,8 +36,8 @@ export class RestauranteListComponent implements OnInit {
         box_restaurantes.style.visibility="visible";
         this.restauranteService.getRestaurantes().subscribe(
             result => {
-            this.Restaurantes = result.data,
-                this.status = result.status
+            this.Restaurantes = result.data;
+                this.status = result.status+"";
                 if (this.status !== "success") {
                     alert("Error en el servidor");
                 }
