@@ -8,14 +8,14 @@
 	</p>
         <label >Dirección</label>
 	<p>
-		<input type="text" #direccion="ngModel" name="direccion" [(ngModel)]="restaurante.director" required>
+		<input type="text" #direccion="ngModel" name="direccion" [(ngModel)]="restaurante.direccion" required>
 	</p>
         <label >Precio</label>
 	<p>
 		
                 <select #precio="ngModel" name="precio" [(ngModel)]="restaurante.precio" required >
                     <option value="bajo">Bajo</option>
-                    <option value="Normal">Normal</option>
+                    <option value="normal">Normal</option>
                     <option value="alto">Alto</option>
                 </select>
 	</p>
@@ -24,6 +24,10 @@
             <textarea type="text" #descripcion="ngModel" name="descripcion" [(ngModel)]="restaurante.descripcion" required>
             </textarea>  
         </p>
+        <label >Imagen</label>
+	<p>
+            <input type="file" (change)="fileChangeEvent($event)" >
+	</p>
             <br>
-            <input type="submit" name="name" [disabled]="!restauranteForm.form.valid" value="Crear Pelicula">
+            <input type="submit" name="name" [disabled]="!restauranteForm.form.valid" value="Crear Restaurante">
 </form>

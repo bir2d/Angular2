@@ -6,17 +6,20 @@
         <img src="../../assets/img/cargando.gif"/>
     </li>
     <li id="restaurantes-item" *ngFor="let restaurante of Restaurantes"  > 
-        <div class="imagen"></div>
+        <div class="imagen">
+            <img  class="imagen" src="http://localhost:8080/api_res_angular2/uploads/{{restaurante.imagen}}" *ngIf="restaurante.imagen && restaurante.imagen!=='null'" />
+        </div>
         <div class="data"> 
             <h4>{{restaurante.nombre}}</h4>
         <p>{{restaurante.direccion}}</p>
         <div class="clearfix"></div>
         <p> 
             <a [routerLink]="['/restaurante', restaurante.id]" class="btn btn-ver">Ver</a>
-            <a href="" class="btn btn-editar">Editar</a>
-            <a href="" class="btn btn-eliminar">Eliminar</a>
+            <a [routerLink]="['/editar_restaurante', restaurante.id]" class="btn btn-editar">Editar</a>
+            <a (click)="onDelete(restaurante.id)" class="btn btn-eliminar">Eliminar</a>
            
         </p>
+     
         </div>
         <div class="clearfix"></div>
     </li>

@@ -17,11 +17,29 @@ var RestauranteService = (function () {
     }
     RestauranteService.prototype.getRestaurantes = function () {
         return this._http.get("http://localhost:8080/api_res_angular2/restaurantes-api.php/restaurantes")
-            .map(function (res) { return res.json(); });
+            .map(function (res) { return res; });
     };
     RestauranteService.prototype.getRestaurante = function (id) {
         return this._http.get("http://localhost:8080/api_res_angular2/restaurantes-api.php/restaurante/" + id)
-            .map(function (res) { return res.json(); });
+            .map(function (res) { return res; });
+    };
+    RestauranteService.prototype.deleteRestaurante = function (id) {
+        return this._http.get("http://localhost:8080/api_res_angular2/restaurantes-api.php/delete-restaurante/" + id)
+            .map(function (res) { return res; });
+    };
+    RestauranteService.prototype.addRestaurante = function (restaurante) {
+        var body = JSON.stringify(restaurante);
+        body = "json=" + body;
+        var headers = new http_1.Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this._http.post("http://localhost:8080/api_res_angular2/restaurantes-api.php/restaurantes", body, options).map(function (res) { return res; });
+    };
+    RestauranteService.prototype.editRestaurante = function (restaurante) {
+        var body = JSON.stringify(restaurante);
+        body = "json=" + body;
+        var headers = new http_1.Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this._http.post("http://localhost:8080/api_res_angular2/restaurantes-api.php/update-restaurante/" + restaurante.id, body, options).map(function (res) { return res; });
     };
     RestauranteService = __decorate([
         core_1.Injectable(), 

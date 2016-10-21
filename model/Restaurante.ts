@@ -1,4 +1,5 @@
 export class Restaurante {
+    
   private id: number;
   private nombre: string;
   private direccion: string;

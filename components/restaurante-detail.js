@@ -32,8 +32,8 @@ var RestauranteDetailComponent = (function () {
             id = +params['id'] + ""; // (+) converts string 'id' to a number
         });
         this.restauranteService.getRestaurante(id).subscribe(function (result) {
-            _this.restaurante = result.data;
-            _this.status = result.status + "";
+            _this.restaurante = result.json().data;
+            _this.status = result.json().status;
             if (_this.status !== "success") {
                 _this.router.navigate(["/Home"]);
             }

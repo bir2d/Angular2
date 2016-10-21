@@ -17,6 +17,7 @@ var app_routing_module_1 = require('./components/routing/app-routing.module');
 var restaurantes_list_1 = require('./components/restaurantes-list');
 var restaurante_detail_1 = require('./components/restaurante-detail');
 var restaurante_add_1 = require('./components/restaurante-add');
+var restaurante_edit_1 = require('./components/restaurante-edit');
 var AppModule = (function () {
     function AppModule() {
     }
@@ -26,7 +27,7 @@ var AppModule = (function () {
                 http_1.JsonpModule,
                 app_routing_module_1.AppRoutingModule
             ],
-            declarations: [app_component_1.AppComponent, restaurantes_list_1.RestauranteListComponent, restaurante_detail_1.RestauranteDetailComponent, restaurante_add_1.RestauranteAddComponent],
+            declarations: [app_component_1.AppComponent, restaurantes_list_1.RestauranteListComponent, restaurante_detail_1.RestauranteDetailComponent, restaurante_add_1.RestauranteAddComponent, restaurante_edit_1.RestauranteEditComponent],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])

@@ -36,8 +36,9 @@ export class RestauranteListComponent implements OnInit {
         box_restaurantes.style.visibility="visible";
         this.restauranteService.getRestaurantes().subscribe(
             result => {
-            this.Restaurantes = result.data;
-                this.status = result.status+"";
+                
+                this.Restaurantes = result.json().data;
+                this.status = result.json().status;
                 if (this.status !== "success") {
                     alert("Error en el servidor");
                 }
@@ -51,6 +52,25 @@ export class RestauranteListComponent implements OnInit {
                 }
               }
         )
+    }
+    onDelete(id){
+        this.restauranteService.deleteRestaurante(id).subscribe(result => {
+
+            this.status = result.json().status;
+            
+            if (this.status === "success") {
+                this.router.navigate(["/"]);
+                 this.getRestaurantes();
+            }
+
+        }
+            , error => {
+                this.errorMessage = <any>error;
+                if (this.errorMessage !== null) {
+                    console.log(this.errorMessage);
+                    alert("Error en la petición");
+                }
+            })
     }
 
 }
